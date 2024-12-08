@@ -3,10 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LikeController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,6 +39,9 @@ Route::middleware('auth')->prefix('posts')->name('posts.')->group(function () {
     Route::patch("{post}", [PostController::class, 'update'])->name('update');
     Route::delete("{post}", [PostController::class, 'delete'])->name('delete');
 });
+
+Route::post('/posts/{post}/like', [LikeController::class, 'store'])->name('posts.like');
+Route::delete('/posts/{post}/like', [LikeController::class, 'destroy'])->name('posts.unlike');
 
 
 require __DIR__ . '/auth.php';

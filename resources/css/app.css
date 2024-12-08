@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.__login-text {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.container__login-box {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    /* text-align: center; */
+    /* margin: 0 auto; */
+}
+
+.container__login-box__name {
+    width: 100%;
+    /* text-align: center; */
+    /* margin: 0 auto; */
+    padding: 0 0 8% 0;
+}
+
+.__input-label {
+    /* display: block; */
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+.__input-box {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    /* outline: solid 1px rgba(0, 0, 0, 0.1); */
+    font-size: 1.25rem;
+    /* color: rgba(0, 0, 0, 0.6); */
+}
+
+.__input-box::placeholder {
+    font-size: 0.8rem;
+}
+
+.container__login-box__email {
+    font-size: 0.5rem;
+    padding: 0 0 8% 0;
+}

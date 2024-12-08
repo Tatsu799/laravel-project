@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class='max-w-xl mx-auto p-4'>
         @if(session('message'))
-            <div class="__text w-full bg-red-100 text-red-400 p-2 mb-6 rounded">
+            <div class="w-full bg-red-100 text-red-400 p-2 mb-6 rounded">
                 {{ session('message') }}
             </div>
         @endif
@@ -26,6 +26,22 @@
                         @unless ($post->created_at->eq($post->updated_at))
                         <span class='text-sm text-grey-600 ml-auto'>(edited)</span>
                         @endunless
+                    </div>
+
+                    <div>
+                        @if ($post->isLikedBy(auth()->user()))
+                            <form action="{{ route('posts.unlike', $post)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">いいねを取り消す</button>
+                            </form>
+                        @else
+                        <form action="{{ route('posts.like', $post)}}" method="POST">
+                            @csrf
+                            <button type="submit">いいね</button>
+                        </form>
+                        @endif
+                        <p>いいね数: {{ $post->Likes->count() }}</p>
                     </div>
                 </div>
                 @if ($post->user->is(auth()->user()))

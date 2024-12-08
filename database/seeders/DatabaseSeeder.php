@@ -9,22 +9,22 @@ use App\Models\Task;
 
 class DatabaseSeeder extends Seeder
 {
-  /**
-   * Seed the application's database.
-   */
-  public function run(): void
-  {
-    // User::factory(10)->create();
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // User::factory(10)->create();
 
-    // User::factory()->create([
-    //     'name' => 'Test User',
-    //     'email' => 'test@example.com',
-    // ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-    // $this->call(TasksTableSeeder::class);
+        // $this->call(TasksTableSeeder::class);
 
-    $this->call(UsersTableSeeder::class);
-    $this->call(TasksTableSeeder::class);
-    Task::factory()->count(10)->create();
-  }
+        $this->call(UsersTableSeeder::class);
+        // $this->call(TasksTableSeeder::class);
+        // Task::factory()->count(10)->create();
+    }
 }
